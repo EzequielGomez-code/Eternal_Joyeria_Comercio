@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto - Eternal Joyería de Lujo</title>
+  <link rel="icon" type="image/png" href="LogoCelta.png">
+  <!-- Fuente moderna desde Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Script principal -->
+  <script defer src="script.js"></script>
+  
+  <!-- Estilos específicos para la sección de Contacto -->
+  <style>
+    .contact-container {
+      margin-top: 120px;
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      gap: 20px;
+      padding: 20px;
+    }
+    .contact-info {
+      flex: 1 1 300px;
+      background-color: #222;
+      padding: 20px;
+      min-width: 280px;
+      border-radius: 8px;
+    }
+    .contact-info h2 {
+      margin-bottom: 20px;
+      font-weight: bold;
+      font-size: 1.8rem;
+    }
+    .contact-info p {
+      margin: 10px 0;
+      line-height: 1.5;
+    }
+    .contact-info .info-icon {
+      margin-right: 8px;
+      color: #ccc;
+    }
+    .social-icons-contact {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    .social-icons-contact a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #333;
+      transition: transform 0.3s, background-color 0.3s;
+      text-decoration: none;
+    }
+    .social-icons-contact a:hover {
+      transform: scale(1.1);
+      background-color: #444;
+    }
+    .social-icons-contact a img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+    .contact-form {
+      flex: 2 1 600px;
+      padding: 20px;
+      background-color: #111;
+      border-radius: 8px;
+    }
+    .contact-form h2 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .contact-form label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form input[type="tel"],
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      background-color: #222;
+      border: 1px solid #444;
+      color: #fff;
+      border-radius: 4px;
+    }
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .contact-form button {
+      width: 140px;
+      padding: 10px;
+      background-color: #444;
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+      align-self: flex-start;
+    }
+    .contact-form button:hover {
+      background-color: #666;
+    }
+    @media (max-width: 768px) {
+      .contact-container {
+        flex-direction: column;
+        margin-top: 100px;
+      }
+      .contact-info, .contact-form {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Pantalla Inicial Glitch -->
+  <div id="glitch-screen" class="glitch-container">
+    <h1 class="glitch-text"></h1>
+    <button id="recover-btn"></button>
+  </div>
+
+  <!-- Contenedor principal -->
+  <div id="main-content" class="hidden">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="LogoCelta.png" alt="Logo Eternal">
+          <span class="brand-name">Eternal</span>
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li id="menu-toggle">Menú
+            <ul class="submenu hidden">
+              <li><a href="acerca.html">Acerca de Nosotros</a></li>
+              <li><a href="catalogo.html">Catálogo</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+          </li>
+          <li><a href="carrito.html">Carrito</a></li>
+          <li>
+            <div class="search-container">
+              <input type="text" placeholder="Buscar..." id="search">
+              <button id="search-btn">🔍</button>
+            </div>
+          </li>
+          <li id="dark-mode-toggle">🌙</li>
+          <li id="location-icon">📍</li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Contenido de Contacto -->
+    <div class="contact-container">
+      <!-- Columna Izquierda: Información de Contacto -->
+      <div class="contact-info">
+        <h2>Información de Contacto</h2>
+        <p>
+          <span class="info-icon">📍</span>
+          Calle 4, Av. Winston Churchill<br>
+          Santo Domingo, Edificio #4
+        </p>
+        <p>
+          <span class="info-icon">📞</span>
+          (809) 745-9693
+        </p>
+        <p>
+          <span class="info-icon">✉</span>
+          <a href="mailto:EternalJewelry@gmail.com" style="color: #ccc;">EternalJewelry@gmail.com</a>
+        </p>
+        <p>
+          <span class="info-icon">⏰</span>
+          Lunes a Viernes: 8:00 a.m. - 6:00 p.m.<br>
+          Sábados: 10:00 a.m. - 3:00 p.m.
+        </p>
+        <h3 style="margin-top: 20px;">Síguenos</h3>
+        <div class="social-icons-contact">
+          <a href="https://facebook.com" target="_blank" title="Facebook">
+            <img src="facebook.png" alt="Facebook">
+          </a>
+          <a href="https://instagram.com" target="_blank" title="Instagram">
+            <img src="instagram.png" alt="Instagram">
+          </a>
+          <a href="https://x.com" target="_blank" title="X">
+            <img src="x.png" alt="X">
+          </a>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Formulario -->
+      <div class="contact-form">
+        <h2>Envíanos un mensaje</h2>
+        <form action="#" method="post">
+          <div>
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+          </div>
+          <div>
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono" required>
+          </div>
+          <div>
+            <label for="asunto">Asunto</label>
+            <input type="text" id="asunto" name="asunto" placeholder="Motivo de tu mensaje" required>
+          </div>
+          <div>
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+          </div>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Chatbot -->
+    <div id="chatbot">
+      <button id="chat-toggle">💬</button>
+      <div id="chatbox" class="hidden">
+        <div id="chat-messages"></div>
+        <input type="text" id="chat-input" placeholder="Escribe tu mensaje">
+        <button id="send-msg">Enviar</button>
+      </div>
+    </div>
+
+    <!-- Modal de Ubicación -->
+    <div id="location-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <iframe src="https://www.google.com/maps/embed?pb=..." allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-links">
+        <span>&copy;2025 Eternal</span>
+        <span>Términos y Condiciones</span>
+        <span>Política de Privacidad</span>
+        <span>Licencia</span>
+        <span>Política de cookies</span>
+      </div>
+      <div class="social-icons">
+        <span>⌚</span>
+        <span>💵</span>
+        <span>🔥</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

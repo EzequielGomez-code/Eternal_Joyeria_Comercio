@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrito - Eternal Joyería de Lujo</title>
+  <link rel="icon" type="image/png" href="LogoCelta.png">
+  <!-- Fuente moderna desde Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+  <style>
+    .cart-container {
+      margin-top: 120px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .cart-items {
+      flex: 2 1 600px;
+      background-color: #111;
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .cart-items h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    .cart-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .cart-table th, .cart-table td {
+      padding: 10px;
+      border-bottom: 1px solid #444;
+      text-align: left;
+      vertical-align: middle;
+    }
+    .cart-table th {
+      background-color: #222;
+    }
+    .cart-table img {
+      width: 80px;
+      height: auto;
+      object-fit: contain;
+    }
+    .cart-summary {
+      flex: 1 1 300px;
+      background-color: #222;
+      border-radius: 8px;
+      padding: 20px;
+      color: #fff;
+      min-width: 280px;
+    }
+    .cart-summary h2 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .login-block {
+      margin-top: 30px;
+      background-color: #111;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .login-block h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .login-block label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .login-block input[type="email"],
+    .login-block input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      background-color: #222;
+      border: 1px solid #444;
+      color: #fff;
+      border-radius: 4px;
+    }
+    .login-block button {
+      background-color: #444;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .login-block button:hover {
+      background-color: #666;
+    }
+    .payment-icons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    .payment-icons img {
+      width: 60px;
+      height: auto;
+      object-fit: contain;
+    }
+    .reset-cart-btn {
+      margin-top: 20px;
+      background-color: #cc0000;
+      border: none;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .reset-cart-btn:hover {
+      background-color: #a30000;
+    }
+    @media (max-width: 768px) {
+      .cart-container {
+        flex-direction: column;
+        margin-top: 100px;
+      }
+      .cart-items, .cart-summary {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Pantalla Inicial Glitch -->
+  <div id="glitch-screen" class="glitch-container">
+    <h1 class="glitch-text"></h1>
+    <button id="recover-btn"></button>
+  </div>
+  <!-- Contenido Principal -->
+  <div id="main-content" class="hidden">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="LogoCelta.png" alt="Logo Eternal">
+          <span class="brand-name">Eternal</span>
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li id="menu-toggle">Menú
+            <ul class="submenu hidden">
+              <li><a href="acerca.html">Acerca de Nosotros</a></li>
+              <li><a href="catalogo.html">Catálogo</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+          </li>
+          <li><a href="carrito.html">Carrito</a></li>
+          <li>
+            <div class="search-container">
+              <input type="text" placeholder="Buscar..." id="search">
+              <button id="search-btn">🔍</button>
+            </div>
+          </li>
+          <li id="dark-mode-toggle">🌙</li>
+          <li id="location-icon">📍</li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Contenido Carrito -->
+    <div class="cart-container">
+      <!-- Lista de Items en el Carrito -->
+      <div class="cart-items">
+        <h2>Mi Carrito</h2>
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Cant.</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="cart-table-body">
+            <!-- Se llenará dinámicamente -->
+          </tbody>
+        </table>
+        <button class="reset-cart-btn" id="reset-cart">Reiniciar Carrito</button>
+      </div>
+      <!-- Resumen de compra / Login -->
+      <div class="cart-summary">
+        <h2>Resumen</h2>
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <span id="summary-subtotal">US$0</span>
+        </div>
+        <div class="summary-line">
+          <span>Transporte</span>
+          <span>GRATIS</span>
+        </div>
+        <div class="summary-line">
+          <span>Total (impuestos incluidos)</span>
+          <span id="summary-total">US$0</span>
+        </div>
+        <!-- Bloque de "iniciar sesión" -->
+        <div class="login-block">
+          <h2>Ya tengo una cuenta</h2>
+          <label for="email-login">Dirección de E-mail</label>
+          <input type="email" id="email-login" placeholder="ejemplo@Eternal.com">
+          <label for="password-login">Contraseña</label>
+          <input type="password" id="password-login" placeholder="********">
+          <button>Iniciar Sesión</button>
+        </div>
+        <p style="margin-top: 20px;">
+          <strong>Invitados y Nuevos Clientes</strong><br>
+          Puedes continuar como invitado o crear una cuenta fácilmente durante el proceso de compra.
+        </p>
+        <!-- Iconos de métodos de pago -->
+        <div class="payment-icons">
+          <img src="mastercard.png" alt="MasterCard">
+          <img src="visa.png" alt="Visa">
+          <img src="paypal.png" alt="PayPal">
+          <img src="bitcoin.png" alt="Bitcoin">
+          <img src="amex.png" alt="American Express">
+        </div>
+      </div>
+    </div>
+    <!-- Chatbot -->
+    <div id="chatbot">
+      <button id="chat-toggle">💬</button>
+      <div id="chatbox" class="hidden">
+        <div id="chat-messages"></div>
+        <input type="text" id="chat-input" placeholder="Escribe tu mensaje">
+        <button id="send-msg">Enviar</button>
+      </div>
+    </div>
+    <!-- Modal de Ubicación -->
+    <div id="location-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <iframe src="https://www.google.com/maps/embed?pb=..." allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+    <!-- Pie de página -->
+    <footer>
+      <div class="footer-links">
+        <span>&copy;2025 Eternal</span>
+        <span>Términos y Condiciones</span>
+        <span>Política de Privacidad</span>
+        <span>Licencia</span>
+        <span>Política de cookies</span>
+      </div>
+      <div class="social-icons">
+        <span>⌚</span>
+        <span>💵</span>
+        <span>🔥</span>
+      </div>
+    </footer>
+  </div>
+  <!-- Script para cargar el carrito -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const cartTableBody = document.getElementById('cart-table-body');
+      let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+      let subtotal = 0;
+      cartTableBody.innerHTML = ""; // Limpia la tabla antes de llenar
+      cart.forEach(item => {
+        const row = document.createElement('tr');
+        // Producto: imagen y nombre
+        const tdProduct = document.createElement('td');
+        const img = document.createElement('img');
+        img.src = item.image;
+        img.alt = item.name;
+        tdProduct.appendChild(img);
+        const spanName = document.createElement('span');
+        spanName.textContent = " " + item.name;
+        tdProduct.appendChild(spanName);
+        // Precio
+        const tdPrice = document.createElement('td');
+        tdPrice.textContent = "US$" + item.price.toLocaleString('en-US');
+        // Cantidad
+        const tdQuantity = document.createElement('td');
+        tdQuantity.textContent = item.quantity;
+        // Subtotal por producto
+        const tdSub = document.createElement('td');
+        const productSub = item.price * item.quantity;
+        tdSub.textContent = "US$" + productSub.toLocaleString('en-US');
+        subtotal += productSub;
+        row.appendChild(tdProduct);
+        row.appendChild(tdPrice);
+        row.appendChild(tdQuantity);
+        row.appendChild(tdSub);
+        cartTableBody.appendChild(row);
+      });
+      document.getElementById('summary-subtotal').textContent = "US$" + subtotal.toLocaleString('en-US');
+      document.getElementById('summary-total').textContent = "US$" + subtotal.toLocaleString('en-US');
+
+      // Reiniciar Carrito
+      document.getElementById('reset-cart').addEventListener('click', function() {
+        if(confirm("¿Seguro que deseas reiniciar el carrito?")) {
+          localStorage.removeItem('cartItems');
+          location.reload();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

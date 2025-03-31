@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eternal - Acerca de Nosotros</title>
+  <link rel="icon" type="image/png" href="LogoCelta.png">
+  <!-- Fuente moderna desde Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+  <style>
+    /* Estilos específicos para la sección Acerca de Eternal */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 40vh;
+      overflow: hidden;
+      margin-bottom: 30px;
+      background: url('Dubai_fondo.jpg') no-repeat center center;
+      background-size: cover;
+    }
+    .hero .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .acerca-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .acerca-left {
+      flex: 1 1 300px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      text-align: left;
+      padding: 20px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 5px;
+    }
+    .acerca-right {
+      flex: 2 1 600px;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #ddd;
+      padding: 20px;
+    }
+    .acerca-right p.bold {
+      font-weight: bold;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Pantalla Inicial Glitch -->
+  <div id="glitch-screen" class="glitch-container">
+    <h1 class="glitch-text"></h1>
+    <button id="recover-btn"></button>
+  </div>
+
+  <!-- Contenedor principal -->
+  <div id="main-content" class="hidden">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="LogoCelta.png" alt="Logo Eternal">
+          <span class="brand-name">Eternal</span>
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li id="menu-toggle">Menú
+            <ul class="submenu hidden">
+              <li><a href="acerca.html">Acerca de Nosotros</a></li>
+              <li><a href="catalogo.html">Catálogo</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+          </li>
+          <li><a href="carrito.html">Carrito</a></li>
+          <li>
+            <div class="search-container">
+              <input type="text" placeholder="Buscar..." id="search">
+              <button id="search-btn">🔍</button>
+            </div>
+          </li>
+          <li id="dark-mode-toggle">🌙</li>
+          <li id="location-icon">📍</li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Sección Hero con imagen de fondo completa -->
+    <section class="hero">
+      
+      <div class="overlay">
+        <br>
+        <br>
+        Acerca de Eternal
+      </div>
+    </section>
+
+    <!-- Sección Acerca de Eternal en dos columnas con fade-in -->
+    <section class="acerca-section fade-in">
+      <!-- Columna Izquierda: Frase impactante -->
+      <div class="acerca-left">
+        Una marca de élite que encarna distinción y perfección.
+      </div>
+      <!-- Columna Derecha: Texto de presentación -->
+      <div class="acerca-right">
+        <p class="bold">
+          En Eternal nos especializamos en ofrecer piezas únicas y de la más alta calidad en relojería, joyería fina y prendas exclusivas. Nuestra reputación se ha forjado en el compromiso con la excelencia y la elegancia, trayendo marcas legendarias como Rolex, Patek Philippe y muchas otras.
+        </p>
+        <br>
+        <p>
+          Tras un periodo de intensos ajustes y mejoras técnicas, nos complace anunciar nuestra próxima reapertura. Hemos aprovechado este tiempo para renovar nuestra presencia digital, optimizar la seguridad y perfeccionar cada detalle de la experiencia que ofrecemos.
+        </p>
+        <br>
+        <p>
+          Pronto podrás disfrutar de un sitio completamente renovado, donde la innovación y el lujo se unen para brindarte lo mejor del mundo del alto prestigio.
+          <br><br>
+          ¡Te esperamos para que descubras lo que hemos preparado para ti!
+        </p>
+      </div>
+    </section>
+
+    <!-- Chatbot -->
+    <div id="chatbot">
+      <button id="chat-toggle">💬</button>
+      <div id="chatbox" class="hidden">
+        <div id="chat-messages"></div>
+        <input type="text" id="chat-input" placeholder="Escribe tu mensaje">
+        <button id="send-msg">Enviar</button>
+      </div>
+    </div>
+
+    <!-- Modal de Ubicación -->
+    <div id="location-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <iframe src="https://www.google.com/maps/embed?pb=..." allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+      <div class="footer-links">
+        <span>&copy;2025 Eternal</span>
+        <span>Términos y Condiciones</span>
+        <span>Política de Privacidad</span>
+        <span>Licencia</span>
+        <span>Política de cookies</span>
+      </div>
+      <div class="social-icons">
+        <span>⌚</span>
+        <span>💵</span>
+        <span>🔥</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Script para el fade-in (opcional) -->
+  <script>
+    document.addEventListener("scroll", function() {
+      document.querySelectorAll('.fade-in').forEach(function(el) {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.8) {
+          el.classList.add('visible');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

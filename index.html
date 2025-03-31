@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Web Oficial de Eternal - Joyería de Lujo</title>
+  <link rel="icon" type="image/png" href="LogoCelta.png">
+  <!-- Fuente moderna desde Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Pantalla Inicial Glitch -->
+  <div id="glitch-screen" class="glitch-container">
+    <h1 class="glitch-text"></h1>
+    <button id="recover-btn"></button>
+  </div>
+  <!-- Contenido Principal -->
+  <div id="main-content" class="hidden">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="LogoCelta.png" alt="Logo Eternal">
+          <span class="brand-name">Eternal</span>
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li id="menu-toggle">Menú
+            <ul class="submenu hidden">
+              <li><a href="acerca.html">Acerca de Nosotros</a></li>
+              <li><a href="catalogo.html">Catálogo</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+          <li><a href="carrito.html">Carrito</a></li>
+          </li>
+          <li>
+            <div class="search-container">
+              <input type="text" placeholder="Buscar..." id="search">
+              <button id="search-btn">🔍</button>
+            </div>
+          </li>
+          <li id="dark-mode-toggle">🌙</li>
+          <li id="location-icon">📍</li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Carrusel -->
+    <section id="carousel">
+      <div class="carousel-container">
+        <img src="Reloj_Suit.jpg" alt="Imagen 1">
+        <img src="Reloj_Classic.jpg" alt="Imagen 2">
+        <img src="Reloj_stand.jpg" alt="Imagen 3">
+        <img src="Cadena_Oro.jpg" alt="Imagen 4">
+        <img src="Muestra_reloj.jpg" alt="Imagen 5">
+        <img src="Anillo_diamante.jpg" alt="Imagen 6">
+        <img src="Chica_anillo.jpg" alt="Imagen 7">
+        <img src="Pulido.jpg" alt="Imagen 8">
+        <img src="Reloj_Oro.jpg" alt="Imagen 9">
+        <img src="Asia_Perlas.jpg" alt="Imagen 10">
+        <img src="Chica_Sonriendo2.jpg" alt="Imagen 11">
+        <img src="Arete_Blanco_Negro.jpg" alt="Imagen 12">
+        <img src="Pulido_2.jpg" alt="Imagen 13">
+        <img src="Chica_Sonriendo.jpg" alt="Imagen 14">
+        <img src="Probando_Collar.jpg" alt="Imagen 15">
+        <img src="Chica_Aretes.jpg" alt="Imagen 16">
+        <img src="Cajita_Aretes.jpg" alt="Imagen 17">
+        <img src="Cadena_en_mano.jpg" alt="Imagen 18">
+      </div>
+    </section>
+    <!-- Efecto Scroll -->
+    <section id="scroll-effect">
+      <img src="Submarine_Effects.jpeg" alt="Imagen con efecto">
+      <img src="Fondo_Effects.jpeg" alt="Imagen con efecto">
+      <img src="Reloj_Effects.jpeg" alt="Imagen con efecto">
+      <img src="Muestra_reloj_Effects.jpg" alt="Imagen con efecto">
+      <img src="Manos_Effects_try.jpg" alt="Imagen con efecto">
+      <img src="Mujer_Effects.jpg" alt="Imagen con efecto">
+      <img src="Perlas_Effects.jpg" alt="Imagen con efecto">
+    </section>
+    <!-- Chatbot -->
+    <div id="chatbot">
+      <button id="chat-toggle">💬</button>
+      <div id="chatbox" class="hidden">
+        <p>Bienvenido a Eternal. ¿En qué puedo ayudarte?</p>
+        <input type="text" placeholder="Escribe tu consulta..." id="chat-input">
+        <button id="send-msg">Enviar</button>
+        <div id="chat-messages"></div>
+      </div>
+    </div>
+    <!-- Modal de Ubicación -->
+    <div id="location-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.9155857749167!2d-69.93120968469207!3d18.486057287964985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eaf8870b5e5dceb%3A0x2a4f23f8b9b4d8a5!2sSanto%20Domingo%2C%20Rep%C3%BAblica%20Dominicana!5e0!3m2!1ses-419!2sus!4v1614162302443!5m2!1ses-419!2sus" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+    <!-- Pie de página -->
+    <footer>
+      <div class="footer-links">
+        <span>&copy;2025 Eternal |</span>
+        <span>Términos y Condiciones |</span>
+        <span>Política de Privacidad |</span>
+        <span>Licencia |</span>
+        <span>Política de cookies</span>
+      </div>
+      <div class="social-icons">
+        <span>⌚</span>
+        <span>💵</span>
+        <span>🔥</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

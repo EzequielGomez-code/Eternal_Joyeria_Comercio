@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eternal - Catálogo</title>
+  <!-- Fuente moderna desde Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+  <style>
+    /* Estilos específicos para el catálogo */
+    .catalogo-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .catalogo-section h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #444;
+      padding-bottom: 5px;
+    }
+    .catalogo-section h3 {
+      font-size: 1.4rem;
+      margin: 20px 0 10px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #333;
+      padding-bottom: 5px;
+    }
+    .catalog-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .catalog-item {
+      flex: 1 1 calc(33.333% - 20px);
+      background: rgba(0,0,0,0.2);
+      border-radius: 5px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .catalog-item:hover {
+      background: rgba(255,255,255,0.1);
+      transform: scale(1.03);
+    }
+    .item-info {
+      color: #ddd;
+      margin-bottom: 10px;
+    }
+    .item-info h4 {
+      font-weight: bold;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+    }
+    .item-info p {
+      margin-bottom: 5px;
+      font-size: 0.95rem;
+    }
+    .item-info span {
+      font-size: 0.9rem;
+    }
+    .item-image {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .item-image img {
+      width: 150px;
+      height: auto;
+      object-fit: contain;
+    }
+    /* Botón Agregar al Carrito embellecido */
+    .add-to-cart-btn {
+      background-color: #0077cc;
+      border: none;
+      color: #fff;
+      padding: 10px 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      transition: background-color 0.3s;
+      align-self: center;
+    }
+    .add-to-cart-btn:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <!-- Tapadera Glitch -->
+  <div id="glitch-screen" class="glitch-container">
+    <h1 class="glitch-text"></h1>
+    <button id="recover-btn"></button>
+  </div>
+  <!-- Contenido Principal -->
+  <div id="main-content" class="hidden">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="LogoCelta.png" alt="Logo Eternal">
+          <span class="brand-name">Eternal</span>
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li id="menu-toggle">Menú
+            <ul class="submenu hidden">
+              <li><a href="acerca.html">Acerca de Nosotros</a></li>
+              <li><a href="catalogo.html">Catálogo</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+          </li>
+          <li><a href="carrito.html">Carrito</a></li>
+          <li>
+            <div class="search-container">
+              <input type="text" placeholder="Buscar..." id="search">
+              <button id="search-btn">🔍</button>
+            </div>
+          </li>
+          <li id="dark-mode-toggle">🌙</li>
+          <li id="location-icon">📍</li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Sección Catálogo -->
+    <section class="catalogo-section fade-in">
+      <!-- Relojes -->
+      <br><br><br><br><br>
+      <h2>Relojes</h2>
+      <!-- Rolex -->
+      <h3>Rolex</h3>
+      <div class="catalog-row">
+        <!-- Item 1 -->
+        <div class="catalog-item">
+          <div class="item-info">
+            <h4>Rolex Submariner</h4>
+            <p>Oyster, 41 mm, oro amarillo y diamantes</p>
+            <span>$9,650</span>
+          </div>
+          <div class="item-image">
+            <img src="reloj_rolex_submariner.png" alt="Rolex Submariner">
+          </div>
+          <button class="add-to-cart-btn"
+            data-id="rolex_submariner"
+            data-name="Rolex Submariner"
+            data-price="9650"
+            data-image="reloj_rolex_submariner.png">
+            Agregar al Carrito
+          </button>
+        </div>
+        <!-- Item 2 -->
+        <div class="catalog-item">
+          <div class="item-info">
+            <h4>Rolex GMT-Master II</h4>
+            <p>Oyster, 40 mm, acero Oystersteel</p>
+            <span>$11,350</span>
+          </div>
+          <div class="item-image">
+            <img src="Rolex_Batman.png" alt="Rolex GMT-Master II">
+          </div>
+          <button class="add-to-cart-btn"
+            data-id="rolex_gmt_master_ii"
+            data-name="Rolex GMT-Master II"
+            data-price="11350"
+            data-image="Rolex_Batman.png">
+            Agregar al Carrito
+          </button>
+        </div>
+        <!-- Item 3 -->
+        <div class="catalog-item">
+          <div class="item-info">
+            <h4>Rolex Day-Date 36</h4>
+            <p>Oyster, 36 mm, oro blanco y diamantes</p>
+            <span>$151,800</span>
+          </div>
+          <div class="item-image">
+            <img src="Day-Date36.png" alt="Rolex Day-Date 36">
+          </div>
+          <button class="add-to-cart-btn"
+            data-id="rolex_day_date_36"
+            data-name="Rolex Day-Date 36"
+            data-price="151800"
+            data-image="Day-Date36.png">
+            Agregar al Carrito
+          </button>
+        </div>
+      </div>
+      <!-- Patek Philippe -->
+      <h3>Patek Philippe</h3>
+      <div class="catalog-row">
+        <!-- Item 1 -->
+        <div class="catalog-item">
+          <div class="item-info">
+            <h4>Patek Philippe Grand Perpetual Calendar</h4>
+            <p>Oro blanco, 39,9 mm, calendario perpetuo, fase lunar</p>
+            <span>$86,200</span>
+          </div>
+          <div class="item-image">
+            <img src="Patek_Philippe_Cubitus.png" alt="Patek Philippe Grand Perpetual Calendar">
+          </div>
+          <button class="add-to-cart-btn"
+            data-id="patek_grand_perpetual"
+            data-name="Patek Philippe Grand Perpetual Calendar"
+            data-price="86200"
+            data-image="Patek_Philippe_Cubitus.png">
+            Agregar al Carrito
+          </button>
+        </div>
+        <!-- Item 2 -->
+        <div class="catalog-item">
+          <div class="item-info">
+            <h4>Patek Philippe Aquanaut</h4>
+            <p>Diseño deportivo, correa de caucho</p>
+            <span>$18,200</span>
+          </div>
+          <div class="item-image">
+            <img src="Patek_Philippe_Aquanaut.png" alt="Patek Philippe Aquanaut">
+          </div>
+          <button class="add-to-cart-btn"
+            data-id="patek_aquanaut"
+            data-name="Patek Philippe Aquanaut"
+            data-price="18200"
+            data-image="Patek_Philippe_Aquanaut.png">
+            Agregar al Carrito
+          </button>
+        </div>
+        <!-- Item 3 -->
+        <div class="catalog-item">
+          <div class="item-info">
+            <h4>Patek Philippe Calatrava</h4>
+            <p>Oro rosa, 39 mm</p>
+            <span>$28,000</span>
+          </div>
+          <div class="item-image">
+            <img src="reloj_patek_calatrava.png" alt="Patek Philippe Calatrava">
+          </div>
+          <button class="add-to-cart-btn"
+            data-id="patek_calatrava"
+            data-name="Patek Philippe Calatrava"
+            data-price="28000"
+            data-image="reloj_patek_calatrava.png">
+            Agregar al Carrito
+          </button>
+        </div>
+      </div>
+      <!-- Joyas: Collares, Aretes, Brazaletes, Anillos -->
+      <!-- Se mantiene la estructura original, se agregan botones a cada item con atributos data-* -->
+      <!-- Collares -->
+      <h2>Joyas</h2>
+      <h3>Collares</h3>
+      <div class="catalog-row">
+        <div class="catalog-item">
+          <div class="item-info">
+            <h4>Colgante de Mujer Maria</h4>
+            <p>Diamante cultivado en laboratorio</p>
+            <span>$685</span>
+          </div>
+          <div class="item-image">
+            <img src="Colgante_Mujer_Maria.png" alt="Colgante de Mujer Maria">
+          </div>
+          <button class="add-to-cart-btn"
+            data-id="colgante_maria"
+            data-name="Colgante de Mujer Maria"
+            data-price="685"
+            data-image="Colgante_Mujer_Maria.png">
+            Agregar al Carrito
+          </button>
+        </div>
+        <div class="catalog-item">
+          <div class="item-info">
+            <h4>Collar de Mujer Actor</h4>
+            <p>14k, Oro amarillo & Diamante</p>
+            <span>$917</span>
+          </div>
+          <div class="item-image">
+            <img src="Collar_Mujer_Actor.png" alt="Collar de Mujer Actor">
+          </div>
+          <button class="add-to-cart-btn"
+            data-id="collar_actor"
+            data-name="Collar de Mujer Actor"
+            data-price="917"
+            data-image="Collar_Mujer_Actor.png">
+            Agregar al Carrito
+          </button>
+        </div>
+        <div class="catalog-item">
+          <div class="item-info">
+            <h4>Colgante de Mujer Abtei</h4>
+            <p>18k, Oro Rosa & Diamante</p>
+            <span>$1,550</span>
+          </div>
+          <div class="item-image">
+            <img src="Colgante_Mujer_Abtei.png" alt="Colgante de Mujer Abtei">
+          </div>
+          <button class="add-to-cart-btn"
+            data-id="colgante_abtei"
+            data-name="Colgante de Mujer Abtei"
+            data-price="1550"
+            data-image="Colgante_Mujer_Abtei.png">
+            Agregar al Carrito
+          </button>
+        </div>
+      </div>
+      <!-- Aretes -->
+      <h3>Aretes</h3>
+      <div class="catalog-row">
+        <div class="catalog-item">
+          <div class="item-info">
+            <h4>Pendiente de mujer Granseey</h4>
+            <p>18k, Oro & Diamante Negro</p>
+            <span>$1,340</span>
+          </div>
+          <div class="item-image">
+            <img src="Pendiente_Mujer_Granseey.png" alt="Pendiente de mujer Granseey">
+          </div>
+          <button class="add-to-cart-btn"
+            data-id="pendiente_granseey"
+            data-name="Pendiente de mujer Granseey"
+            data-price="1340"
+            data-image="Pendiente_Mujer_Granseey.png">
+            Agregar al Carrito
+          </button>
+        </div>
+        <div class="catalog-item">
+          <div class="item-info">
+            <h4>Aretes de Perla</h4>
+            <p>Perlas cultivadas, montura de plata</p>
+            <span>$1,500</span>
+          </div>
+          <div class="item-image">
+            <img src="Pendiente_Mujer_Coleen.png" alt="Aretes de Perla">
+          </div>
+          <button class="add-to-cart-btn"
+            data-id="aretes_perla"
+            data-name="Aretes de Perla"
+            data-price="1500"
+            data-image="Pendiente_Mujer_Coleen.png">
+            Agregar al Carrito
+          </button>
+        </div>
+        <div class="catalog-item">
+          <div class="item-info">
+            <h4>Pendiente de mujer Louisa</h4>
+            <p>14k, Oro blanco & Diamante cultivado en laboratorio</p>
+            <span>$675</span>
+          </div>
+          <div class="item-image">
+            <img src="Pendiente_Mujer_Louisa.png" alt="Pendiente de mujer Louisa">
+          </div>
+          <button class="add-to-cart-btn"
+            data-id="pendiente_louisa"
+            data-name="Pendiente de mujer Louisa"
+            data-price="675"
+            data-image="Pendiente_Mujer_Louisa.png">
+            Agregar al Carrito
+          </button>
+        </div>
+      </div>
+      <!-- Brazaletes -->
+      <h3>Brazaletes</h3>
+      <div class="catalog-row">
+        <div class="catalog-item">
+          <div class="item-info">
+            <h4>Brazalete de mujer Tamelia</h4>
+            <p>18k, Oro Blanco & Esmeralda</p>
+            <span>$4,050</span>
+          </div>
+          <div class="item-image">
+            <img src="Brazalete_Mujer_Tamelia.png" alt="Brazalete de mujer Tamelia">
+          </div>
+          <button class="add-to-cart-btn"
+            data-id="brazalete_tamelia"
+            data-name="Brazalete de mujer Tamelia"
+            data-price="4050"
+            data-image="Brazalete_Mujer_Tamelia.png">
+            Agregar al Carrito
+          </button>
+        </div>
+        <div class="catalog-item">
+          <div class="item-info">
+            <h4>Brazalete con Diamantes</h4>
+            <p>14k, Oro Blanco & Diamantes</p>
+            <span>$2,800</span>
+          </div>
+          <div class="item-image">
+            <img src="Pulsera_Mujer_Iliana.png" alt="Brazalete con Diamantes">
+          </div>
+          <button class="add-to-cart-btn"
+            data-id="brazalete_diamantes"
+            data-name="Brazalete con Diamantes"
+            data-price="2800"
+            data-image="Pulsera_Mujer_Iliana.png">
+            Agregar al Carrito
+          </button>
+        </div>
+        <div class="catalog-item">
+          <div class="item-info">
+            <h4>Brazalete de Plata</h4>
+            <p>Plata esterlina, diseño clásico</p>
+            <span>$205</span>
+          </div>
+          <div class="item-image">
+            <img src="Brazalete_de_Plata.png" alt="Brazalete de Plata">
+          </div>
+          <button class="add-to-cart-btn"
+            data-id="brazalete_plata"
+            data-name="Brazalete de Plata"
+            data-price="205"
+            data-image="Brazalete_de_Plata.png">
+            Agregar al Carrito
+          </button>
+        </div>
+      </div>
+      <!-- Anillos -->
+      <h3>Anillos</h3>
+      <div class="catalog-row">
+        <div class="catalog-item">
+          <div class="item-info">
+            <h4>Anillo de Compromiso</h4>
+            <p>9k, Oro Amarillo & Zafiro Blanco</p>
+            <span>$3,355</span>
+          </div>
+          <div class="item-image">
+            <img src="Anillo_de_Compromiso.png" alt="Anillo de Compromiso">
+          </div>
+          <button class="add-to-cart-btn"
+            data-id="anillo_compromiso"
+            data-name="Anillo de Compromiso"
+            data-price="3355"
+            data-image="Anillo_de_Compromiso.png">
+            Agregar al Carrito
+          </button>
+        </div>
+        <div class="catalog-item">
+          <div class="item-info">
+            <h4>Anillo Russell</h4>
+            <p>9k, Oro Amarillo & Blanco</p>
+            <span>$340</span>
+          </div>
+          <div class="item-image">
+            <img src="Anillo_Russell.png" alt="Anillo Russell">
+          </div>
+          <button class="add-to-cart-btn"
+            data-id="anillo_russell"
+            data-name="Anillo Russell"
+            data-price="340"
+            data-image="Anillo_Russell.png">
+            Agregar al Carrito
+          </button>
+        </div>
+        <div class="catalog-item">
+          <div class="item-info">
+            <h4>Anillo Lytop</h4>
+            <p>9k, Oro Blanco & Esmeralda</p>
+            <span>$2,800</span>
+          </div>
+          <div class="item-image">
+            <img src="Anillo_Lytop.png" alt="Anillo Lytop">
+          </div>
+          <button class="add-to-cart-btn"
+            data-id="anillo_lytop"
+            data-name="Anillo Lytop"
+            data-price="2800"
+            data-image="Anillo_Lytop.png">
+            Agregar al Carrito
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- Pie de página -->
+    <footer>
+      <div class="footer-links">
+        <span>&copy;2025 Eternal</span>
+        <span>Términos y Condiciones</span>
+        <span>Política de Privacidad</span>
+        <span>Licencia</span>
+        <span>Política de cookies</span>
+      </div>
+      <div class="social-icons">
+        <span>⌚</span>
+        <span>💵</span>
+        <span>🔥</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
